@@ -45,6 +45,8 @@
                                  :name "Hug people"
                                  :description "Only if they smile"
                                  :picture-url "http://forum.smartcanucks.ca/attachments/canadian-contests/166275d1362494836-club-q-q107-loyalty-club-southern-only-v4-cute-cat-hug.jpg"})
+    (p/put-message (:input app) {msg/type :change-idea msg/topic [:idea 1]
+                                 :name "Hug people (maybe)"})
     ;; Returning the app and app-model from the main function allows
     ;; the tooling to add support for useful features like logging
     ;; and recording.

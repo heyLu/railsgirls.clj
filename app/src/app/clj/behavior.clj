@@ -12,9 +12,13 @@
 (defn add-idea-transform [_old-value idea]
   (filter-keys #{:name :description :picture-url} idea))
 
+(defn change-idea [old-idea new-idea]
+  (into old-idea (add-idea-transform nil new-idea)))
+
 (def example-app
   {:version 2
    :transform [[:set-value [:ideas] set-value-transform]
-               [:add-idea  [:idea :*] add-idea-transform]]
+               [:add-idea  [:idea :*] add-idea-transform]
+               [:change-idea [:idea :*] add-idea-transform]]
    :emit [[#{[:ideas]} (app/default-emitter [])]
           [#{[:idea :*]} (app/default-emitter [])]]})
