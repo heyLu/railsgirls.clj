@@ -1,16 +1,5 @@
-<!--
- The Pedestal application development tools provide a very simple
- system for composing documents. This partial will be included
- "within" the application.html file. The div with id "content" in that
- file will be replaced with the div with id "content" in this file.
-
- This feature is only part of the tool. It has nothing to do with the
- ClojureScript application that you are building.
--->
 <_within file="application.html">
-  
   <div id="content">
-
     <!--
         In the markup below, a template named "hello" is
         defined. This template has two fields: id and message.
@@ -37,11 +26,7 @@
     -->
 
     <div template="hello" field="id:id">
-
       <div field="content:message" class="message">A Message</div>
-
     </div>
-
   </div>
-
 </_within>
