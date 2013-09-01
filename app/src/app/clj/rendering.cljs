@@ -49,6 +49,16 @@
   ;; values in the passed map.
   (templates/update-t renderer path {:name new-value :description new-value :picture-url "http://placekitten.com/42/42"}))
 
+(defn render-new-idea [renderer [_ path _ new-idea] transmitter]
+  (let [parent (render/get-parent-id renderer path)
+        id (render/new-id! renderer path)
+        html (templates/add-template renderer path (:app.clj-page templates))]
+    (dom/append! (dom/by-id "content")
+                 (html {:id id
+                        :name (:name new-idea)
+                        :description (:description new-idea)
+                        :picture-url (:picture-url new-idea)}))))
+
 ;; The data structure below is used to map rendering data to functions
 ;; which handle rendering for that specific change. This function is
 ;; referenced in config/config.edn and must be a function in order to
@@ -66,7 +76,9 @@
    [:node-destroy   [:ideas] d/default-exit]
    ;; All :value deltas for this path will be handled by the
    ;; function `render-message`.
-   [:value [:ideas] render-message]])
+   [:value [:ideas] render-message]
+
+   [:value [:idea :*] render-new-idea]])
 
 ;; In render-config, paths can use wildcard keywords :* and :**. :*
 ;; means exactly one segment with any value. :** means 0 or more

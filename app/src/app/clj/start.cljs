@@ -41,6 +41,10 @@
     (app/begin app)
     ;; Send a message to the application so that it does something.
     (p/put-message (:input app) {msg/type :set-value msg/topic [:ideas] :value "Hello World!"})
+    (p/put-message (:input app) {msg/type :add-idea  msg/topic [:idea 1]
+                                 :name "Hug people"
+                                 :description "Only if they smile"
+                                 :picture-url "http://forum.smartcanucks.ca/attachments/canadian-contests/166275d1362494836-club-q-q107-loyalty-club-southern-only-v4-cute-cat-hug.jpg"})
     ;; Returning the app and app-model from the main function allows
     ;; the tooling to add support for useful features like logging
     ;; and recording.
