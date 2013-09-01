@@ -47,7 +47,7 @@
   ;; This function responds to a :value event. It uses the
   ;; `update-t` function to update the template at `path` with the new
   ;; values in the passed map.
-  (templates/update-t renderer path {:message new-value}))
+  (templates/update-t renderer path {:name new-value :description new-value :picture-url "http://placekitten.com/42/42"}))
 
 ;; The data structure below is used to map rendering data to functions
 ;; which handle rendering for that specific change. This function is
