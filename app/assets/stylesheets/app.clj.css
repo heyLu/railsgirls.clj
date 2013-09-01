@@ -9,3 +9,7 @@
   font-weight: bold;
   margin-top: 50px;
 }
+
+.idea img {
+	max-width: 100px;
+}
