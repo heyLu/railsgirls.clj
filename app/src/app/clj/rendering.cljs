@@ -60,13 +60,13 @@
    ;; :greeting is a default name that is used when we don't
    ;; provide our own derives and emits. To name your own nodes,
    ;; create a custom derive or emit in the application's behavior.
-   [:node-create  [:greeting] render-page]
+   [:node-create  [:ideas] render-page]
    ;; All :node-destroy deltas for this path will be handled by the
    ;; library function `d/default-exit`.
-   [:node-destroy   [:greeting] d/default-exit]
+   [:node-destroy   [:ideas] d/default-exit]
    ;; All :value deltas for this path will be handled by the
    ;; function `render-message`.
-   [:value [:greeting] render-message]])
+   [:value [:ideas] render-message]])
 
 ;; In render-config, paths can use wildcard keywords :* and :**. :*
 ;; means exactly one segment with any value. :** means 0 or more

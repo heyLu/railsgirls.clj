@@ -7,4 +7,4 @@
 
 (def example-app
   {:version 2
-   :transform [[:set-value [:greeting] set-value-transform]]})
+   :transform [[:set-value [:ideas] set-value-transform]]})
